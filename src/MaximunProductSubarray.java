@@ -46,7 +46,15 @@ public class MaximunProductSubarray {
 		} else {
 			System.out.println("Failed " + ans5);
 		}
-		
+//		int[] arr6 = new int[] {2,-5,-2,-4,3};
+		int[] arr6 = new int[] {-1,-2,-9,-6};
+		int ans6 = solution.maxProduct(arr6);
+//		if (24 == ans6) {
+		if (108 == ans6) {
+			System.out.println("Successfull "+ ans6);
+		} else {
+			System.out.println("Failed " + ans6);
+		}
 	}
 }
 
@@ -57,14 +65,14 @@ class Solution01 {
     	int product = nums[0];
     	int prod;
     	int temp;
-    	for (int i = 0; i < nums.length; i++) {
+    	for (int i = 1; i < nums.length; i++) {
     		
 			prod = (max * nums[i]) > nums[i] ? (max * nums[i]) : nums[i];
 			if ((min * nums[i]) > prod) prod = (min * nums[i]);
 			
-			temp = (min * nums[i]) < nums[i] ? (min * nums[i]) : nums[i];
-			if ((min * nums[i]) > prod) min = temp;
-			min = (min * nums[i]) > prod ? temp : (min * nums[i]);
+			temp = (max * nums[i]) < nums[i] ? (max * nums[i]) : nums[i];
+//			if ((min * nums[i]) > temp) min = temp;
+			min = (min * nums[i]) > temp ? temp : (min * nums[i]);
 			
 			max = prod;
 			product = max > product ? max : product;
