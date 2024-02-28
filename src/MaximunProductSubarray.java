@@ -39,23 +39,63 @@ public class MaximunProductSubarray {
 		} else {
 			System.out.println("Failed " + ans4);
 		}
+		int[] arr5 = new int[] {-2,3,-4};
+		int ans5 = solution.maxProduct(arr5);
+		if (24 == ans5) {
+			System.out.println("Successfull "+ ans5);
+		} else {
+			System.out.println("Failed " + ans5);
+		}
 		
 	}
 }
 
 class Solution01 {
     public int maxProduct(int[] nums) {
-        int prod = 1;
+        int min = nums[0];
+        int max = nums[0];
     	int product = nums[0];
+    	int prod;
+    	int temp;
     	for (int i = 0; i < nums.length; i++) {
-			prod *= nums[i]; // 3
-			product = prod > product ? prod : product;
-			if ((i+1) < nums.length && nums[i+1] >= 0) {
-				if (prod <= 0) {
-					prod = 1;
-				} 
-			} 			
+    		
+			prod = (max * nums[i]) > nums[i] ? (max * nums[i]) : nums[i];
+			if ((min * nums[i]) > prod) prod = (min * nums[i]);
+			
+			temp = (min * nums[i]) < nums[i] ? (min * nums[i]) : nums[i];
+			if ((min * nums[i]) > prod) min = temp;
+			min = (min * nums[i]) > prod ? temp : (min * nums[i]);
+			
+			max = prod;
+			product = max > product ? max : product;
 		}
     	return product;
     }
+}
+
+class Solution02 {
+	public int maxProduct(int[] nums) {
+		int largestProduct = nums[0];
+        int minCurrentProduct = nums[0];
+        int maxCurrentProduct = nums[0];
+        
+        for (int i = 1; i < nums.length; i++) {
+        	int currentProduct = Math.max(maxCurrentProduct * nums[i], nums[i]);
+        	
+        	if (minCurrentProduct * nums[i] > currentProduct)
+        		currentProduct = minCurrentProduct * nums[i];
+        	
+        	int temp = Math.min(maxCurrentProduct * nums[i], nums[i]);
+        	
+        	if (minCurrentProduct * nums[i] > temp)
+        		minCurrentProduct = temp;
+        	else
+        		minCurrentProduct = minCurrentProduct * nums[i];
+        	
+        	maxCurrentProduct = currentProduct;
+        	largestProduct = Math.max(maxCurrentProduct, largestProduct);
+        }
+        
+		return largestProduct;
+	}
 }
