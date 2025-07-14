@@ -1,3 +1,12 @@
+/*Given an m x n integer matrix matrix, if an element is 0, set its entire row and column to 0's.
+
+You must do it in place.*/
+
+
+
+/*
+solution approach - 
+1st row and 1st column ko use kiya h value set kartne aur extra ek varibale liya h "col" 0th column handle karne */
 
 public class SetMatrixZeros {
 
