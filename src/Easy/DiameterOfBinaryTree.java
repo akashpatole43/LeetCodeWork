@@ -14,6 +14,7 @@ Explaination:
 	1. To solve this we should know how to finad the height of tree (MaximunDepthOfBinaryTree)
 	2. formaula = Diameter = leftHeight + RightHeight
 	3. max diameter = max(diameter, leftHeight+rightHeight)
+	4. also use an array not varible
 	4. TC = O(n) and SC = O(n)
 
 */
@@ -61,7 +62,6 @@ class SolutionDiameterOfBinaryTree {
     }
 
     public int diameterOfBinaryTree(TreeNode root) {
-        // variable to get get max diameter value
         //  In java we can not use varible are reference, so instead of varibale we will use array
         int[] diameter = new int[1];
         // get the height of tree
