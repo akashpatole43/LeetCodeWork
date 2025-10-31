@@ -88,7 +88,7 @@ class BSTIteration {
     }
 
 }
-class SolutionBSTIteration {
+class SolutionTwoSumInputIsABST {
     public boolean findTarget(TreeNode root, int k) {
 
         // Step1
