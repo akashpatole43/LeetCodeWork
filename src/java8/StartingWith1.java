@@ -11,11 +11,13 @@ public class StartingWith1 {
 		// TODO Auto-generated method stub
 		List<Integer> myList = Arrays.asList(10,15,8,49,25,98,32);
 		
-		List<Integer> ans = myList.stream()
-				.map(m -> m.toString())
-				.filter(f -> f.startsWith("1"))
-				.map(m -> Integer.parseInt(m))
-				.collect(Collectors.toList());
+//		List<Integer> ans = myList.stream()
+//				.map(m -> m.toString())
+//				.filter(f -> f.startsWith("1"))
+//				.map(m -> Integer.parseInt(m))
+//				.collect(Collectors.toList());
+//		ye mera solution 
+		List<Integer> ans = myList.stream().filter(f -> String.valueOf(f).startsWith("1")).collect(Collectors.toList());
 		
 		System.out.println(ans);
 	}

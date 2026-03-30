@@ -14,7 +14,7 @@ public class Sorting {
 		// accending order
 		System.out.println(myList.stream().sorted().collect(Collectors.toList()));
 		
-		//descendin order
+		//descending order
 		System.out.println(myList.stream().sorted(Collections.reverseOrder()).collect(Collectors.toList()));
 
 	}
