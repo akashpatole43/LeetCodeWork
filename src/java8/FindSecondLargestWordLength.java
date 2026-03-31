@@ -10,7 +10,7 @@ public class FindSecondLargestWordLength {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String str = "I love you akash";
+		String str = "I love you akash I i";
 		int len = Arrays.stream(str.split("\\s+"))		// split by white space and from array and use stream
 				.map(m -> m.length()) 					// convert the words into its length
 				.sorted(Comparator.reverseOrder())		// sort by descending order
@@ -18,6 +18,24 @@ public class FindSecondLargestWordLength {
 				.findFirst()							// get the second largest length
 				.orElse(0);								// or save 0
 		System.out.println("second largest length is " + len);
+		
+//		print the frequence of each works
+		System.out.println(Arrays.stream(str.split("\\s+"))
+        .collect(Collectors.groupingBy(e -> e, Collectors.counting())));
+		
+		Arrays.stream(str.split("\\s+"))
+        .collect(Collectors.groupingBy(e -> e, Collectors.counting()))
+        .entrySet()
+        .forEach(System.out::println);
+		
+//		print the first work which frequency > 1
+		Arrays.stream(str.split("\\s+"))
+        .collect(Collectors.groupingBy(e -> e, Collectors.counting()))
+        .entrySet()
+        .stream()
+        .filter(f -> f.getValue() > 1)
+        .findFirst()
+        .ifPresent(System.out::println);
 				
 
 	}
